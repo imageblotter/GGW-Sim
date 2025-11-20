@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation Chemisches Gleichgewicht</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Chemisches Gleichgewicht</h1>
+            <p class="subtitle">Reaktion: A + B &#8652; AB</p>
+        </header>
+
+        <main class="simulation-layout">
+            <div class="canvas-container">
+                <canvas id="simCanvas"></canvas>
+                <div class="canvas-overlay">
+                    <div class="stat-box">
+                        <span class="dot red"></span> A: <span id="countA">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="dot blue"></span> B: <span id="countB">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="dot purple"></span> AB: <span id="countAB">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="controls-panel">
+                <div class="control-group">
+                    <h3>Steuerung</h3>
+                    <div class="button-row">
+                        <button id="startBtn" class="btn primary">Start</button>
+                        <button id="resetBtn" class="btn secondary">Reset</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>Systemparameter</h3>
+
+                    <div class="slider-container">
+                        <label for="tempSlider">Temperatur (T)</label>
+                        <input type="range" id="tempSlider" min="100" max="1000" value="300">
+                        <span class="value-display" id="tempValue">300 K</span>
+                    </div>
+
+                    <div class="slider-container">
+                        <label for="activationSlider">Aktivierungsenergie (E<sub>a</sub>)</label>
+                        <input type="range" id="activationSlider" min="10" max="100" value="50">
+                        <span class="value-display" id="activationValue">50 kJ</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>Potentielle Energie</h3>
+                    <div class="energy-graph-container">
+                        <canvas id="energyCanvas"></canvas>
+                    </div>
+
+                    <div class="slider-container">
+                        <label for="eduktSlider">Eduktenergie (E<sub>edukt</sub>)</label>
+                        <input type="range" id="eduktSlider" min="0" max="100" value="20">
+                        <span class="value-display" id="eduktValue">20 kJ</span>
+                    </div>
+
+                    <div class="slider-container">
+                        <label for="productSlider">Produktenergie (E<sub>produkt</sub>)</label>
+                        <input type="range" id="productSlider" min="0" max="100" value="10">
+                        <span class="value-display" id="productValue">10 kJ</span>
+                    </div>
+                </div>
+
+                <div class="graph-container">
+                    <h3>Konzentration vs Zeit</h3>
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+            </aside>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
